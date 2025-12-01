@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AnimeHub | Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- NAVIGATION -->
+        <header class="navbar">
+            <div class="logo">AnimeHub</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="animelist.php">Anime List</a>
+                <a href="genre.html">Genres</a>
+                <a href="dashboard.php">Dashboard</a>
+                <a href="news.php">News</a>
+                <a href="profile.php">Profile</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <button id="darkToggle" class="btn">🌙 Dark Mode</button>
+                <button id="randomBtn" class="btn">🎲 Random Anime</button>
+                <a href="login.php" class="btn login-btn">Login</a>
+                <a href="register.php" class="btn register-btn">Register</a>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>Welcome to AnimeHub</h1>
+            <p>Discover. Watch. Rate. Build your anime world.</p>
+
+            <div class="search-box">
+                <input type="text" id="searchInput"
+                    placeholder="Search for anime...">
+                <button onclick="searchAnime()">Search</button>
+            </div>
+        </section>
+
+        <!-- FEATURED SLIDER -->
+        <section class="featured">
+            <h2>🔥 Popular Now</h2>
+
+            <div class="slider">
+                <img
+                    src="https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+                    alt="Naruto">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFvORsXh-rvDplhdvqFnfQXQDi8PseUSi8Tg&s"
+                    alt="One Piece">
+                <img
+                    src="https://static0.srcdn.com/wordpress/wp-content/uploads/2024/10/demon-slayer-roar-of-victory-poster.jpg?w=1200&h=675&fit=crop"
+                    alt="Demon Slayer">
+                <img
+                    src="https://i.pinimg.com/736x/b4/d2/33/b4d2330e94a9797cd645dfac0ac0cbc5.jpg"
+                    alt="AOT">
+            </div>
+        </section>
+
+        <!-- DYNAMIC ANIME CARDS -->
+        <section class="anime-section">
+            <h2>📌 Explore Anime</h2>
+
+            <!-- Sorting Feature -->
+            <select id="sortSelect" class="sort-menu">
+                <option value>Sort By</option>
+                <option value="rating">⭐ Rating</option>
+                <option value="year">📅 Release Year</option>
+                <option value="alphabet">🔤 Alphabetical</option>
+            </select>
+
+            <div id="animeList" class="anime-container">
+                <!-- JS will load anime here -->
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2025 AnimeHub — Created with ❤️ by Dhanush</p>
+        </footer>
+
+        <script>
+// DARK MODE FEATURE
+document.getElementById("darkToggle").onclick = () => {
+    document.body.classList.toggle("dark-mode");
+};
+
+// RANDOM ANIME FEATURE
+const randomAnimeList = [
+    "Naruto", "One Piece", "Attack on Titan", "Chainsaw Man", 
+    "Demon Slayer", "Jujutsu Kaisen", "My Hero Academia"
+];
+
+document.getElementById("randomBtn").onclick = () => {
+    const pick = randomAnimeList[Math.floor(Math.random() * randomAnimeList.length)];
+    alert("🎲 Try watching: " + pick);
+};
+
+// SORTING PLACEHOLDER LOGIC
+document.getElementById("sortSelect").onchange = (e) => {
+    alert("Sorting by: " + e.target.value + " (feature connects to backend later)");
+};
+
+// SEARCH PLACEHOLDER
+function searchAnime() {
+    const query = document.getElementById("searchInput").value;
+    alert("Searching: " + query + " (connect with backend later)");
+}
+</script>
+
+    </body>
+</html>
